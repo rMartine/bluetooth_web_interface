@@ -1,0 +1,29 @@
+.commandList {
+    margin-top: 20px;
+  }
+  .commandForm {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .commandForm input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  .commandForm button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .commandForm button:hover {
+    background-color: #0069d9;
+  }
+  .commandListContainer {
+    margin-top: 10px;
+  }
+  

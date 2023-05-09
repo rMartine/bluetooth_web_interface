@@ -1,0 +1,27 @@
+
+.deviceList {
+  margin-top: 20px;
+}
+.scanButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.scanButton:hover {
+  background-color: #0069d9;
+}
+.filterInput {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.deviceListContainer {
+  margin-top: 10px;
+}

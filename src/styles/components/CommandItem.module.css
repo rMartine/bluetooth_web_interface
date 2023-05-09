@@ -1,0 +1,28 @@
+.commandItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  .commandText {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  .sendButton,
+  .removeButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  .sendButton:hover,
+  .removeButton:hover {
+    background-color: #0069d9;
+  }
+  
