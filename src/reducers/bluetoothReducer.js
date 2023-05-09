@@ -3,8 +3,8 @@ import {
     FILTER_DEVICES,
     CONNECT_DEVICE,
     DISCONNECT_DEVICE,
-    FETCH_CHARACTERISTICS,
     UPDATE_SELECTED_CHARACTERISTIC,
+    UPDATE_CHARACTERISTICS
   } from '../actions/bluetoothActions';
   
   const initialState = {
@@ -50,7 +50,7 @@ import {
           selectedCharacteristic: null,
         };
   
-      case FETCH_CHARACTERISTICS:
+      case UPDATE_CHARACTERISTICS:
         return {
           ...state,
           characteristics: action.payload,

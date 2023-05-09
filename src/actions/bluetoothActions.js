@@ -1,4 +1,9 @@
-import { v4 as uuidv4 } from 'uuid';
+import {
+  getBluetoothDevices,
+  connectToDevice,
+  getDeviceCharacteristics,
+} from '../utils/bluetooth';
+
 
 export const SCAN_DEVICES = 'SCAN_DEVICES';
 export const FILTER_DEVICES = 'FILTER_DEVICES';
@@ -9,6 +14,7 @@ export const UPDATE_SELECTED_CHARACTERISTIC = 'UPDATE_SELECTED_CHARACTERISTIC';
 
 export const scanDevices = () => async (dispatch) => {
   try {
+    console.log('Scanning devices...');
     const devices = await getBluetoothDevices(); // Replace this with your own implementation
     dispatch({ type: SCAN_DEVICES, payload: devices });
   } catch (error) {
@@ -33,24 +39,22 @@ export const connectDevice = (device) => async (dispatch) => {
   }
 };
 
-export const disconnectDevice = () => ({
-  type: DISCONNECT_DEVICE,
-});
+export const disconnectDevice = () => async (dispatch, getState) => {
+  try {
+    const { bluetooth } = getState();
+    if (bluetooth.connectedDevice) {
+      await bluetooth.connectedDevice.gatt.disconnect();
+      console.log('Disconnected from device:', bluetooth.connectedDevice.name);
+      dispatch({ type: DISCONNECT_DEVICE });
+    } else {
+      console.log('No device connected');
+    }
+  } catch (error) {
+    console.error('Failed to disconnect from device:', error);
+  }
+};
 
 export const updateSelectedCharacteristic = (characteristic) => ({
   type: UPDATE_SELECTED_CHARACTERISTIC,
   payload: characteristic,
 });
-
-// Replace these with your own implementations for interacting with the Bluetooth API
-async function getBluetoothDevices() {
-  return [];
-}
-
-async function connectToDevice(device) {
-  return device;
-}
-
-async function getDeviceCharacteristics(device) {
-  return [];
-}
